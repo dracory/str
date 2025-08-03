@@ -3,7 +3,7 @@ package str_test
 import (
 	"testing"
 
-	"github.com/dracory/base/str"
+	"github.com/dracory/str"
 )
 
 func TestIntToBase36_PositiveNumber(t *testing.T) {

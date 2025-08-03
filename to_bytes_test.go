@@ -5,7 +5,7 @@ import (
 	"testing"
 	"unsafe"
 
-	"github.com/dracory/base/str"
+	"github.com/dracory/str"
 )
 
 func TestToBytes(t *testing.T) {

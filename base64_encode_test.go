@@ -4,7 +4,8 @@ import (
 	"bytes"
 	"encoding/base64"
 	"testing"
-	"github.com/dracory/base/str"
+
+	"github.com/dracory/str"
 )
 
 func TestBase64Encode_SimpleText(t *testing.T) {

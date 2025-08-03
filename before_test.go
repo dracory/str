@@ -2,7 +2,8 @@ package str_test
 
 import (
 	"testing"
-	"github.com/dracory/base/str"
+
+	"github.com/dracory/str"
 )
 
 // TestBefore tests the Before function with various scenarios

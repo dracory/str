@@ -1,9 +1,10 @@
 package str_test
 
 import (
-	"golang.org/x/crypto/bcrypt"
 	"testing"
-	"github.com/dracory/base/str"
+
+	"github.com/dracory/str"
+	"golang.org/x/crypto/bcrypt"
 )
 
 func TestBcryptHashCompare_ValidMatch(t *testing.T) {

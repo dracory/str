@@ -2,7 +2,8 @@ package str_test
 
 import (
 	"testing"
-	"github.com/dracory/base/str"
+
+	"github.com/dracory/str"
 )
 
 func TestAfter_EmptyNeedle(t *testing.T) {

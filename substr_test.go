@@ -2,7 +2,8 @@ package str_test
 
 import (
 	"testing"
-	"github.com/dracory/base/str"
+
+	"github.com/dracory/str"
 )
 
 // TestSubstr tests the Substr function with various scenarios

@@ -4,7 +4,7 @@ import (
 	"regexp"
 	"testing"
 
-	"github.com/dracory/base/str"
+	"github.com/dracory/str"
 )
 
 func TestRandom(t *testing.T) {

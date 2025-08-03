@@ -2,7 +2,8 @@ package str_test
 
 import (
 	"testing"
-	"github.com/dracory/base/str"
+
+	"github.com/dracory/str"
 )
 
 // TestRightFrom_Found tests the case where the needle is found in the string
@@ -10,7 +11,7 @@ func TestRightFrom_Found(t *testing.T) {
 	input := "hello world"
 	needle := "hello "
 	expected := "world"
-	
+
 	result := str.RightFrom(input, needle)
 	if result != expected {
 		t.Errorf("RightFrom(%q, %q) = %q, want %q", input, needle, result, expected)
@@ -22,7 +23,7 @@ func TestRightFrom_NotFound(t *testing.T) {
 	input := "hello world"
 	needle := "universe"
 	expected := ""
-	
+
 	result := str.RightFrom(input, needle)
 	if result != expected {
 		t.Errorf("RightFrom(%q, %q) = %q, want %q", input, needle, result, expected)
@@ -34,7 +35,7 @@ func TestRightFrom_EmptyInput(t *testing.T) {
 	input := ""
 	needle := "world"
 	expected := ""
-	
+
 	result := str.RightFrom(input, needle)
 	if result != expected {
 		t.Errorf("RightFrom(%q, %q) = %q, want %q", input, needle, result, expected)
@@ -46,7 +47,7 @@ func TestRightFrom_EmptyNeedle(t *testing.T) {
 	input := "hello world"
 	needle := ""
 	expected := input
-	
+
 	result := str.RightFrom(input, needle)
 	if result != expected {
 		t.Errorf("RightFrom(%q, %q) = %q, want %q", input, needle, result, expected)
@@ -58,7 +59,7 @@ func TestRightFrom_NeedleAtStart(t *testing.T) {
 	input := "world hello"
 	needle := "world "
 	expected := "hello"
-	
+
 	result := str.RightFrom(input, needle)
 	if result != expected {
 		t.Errorf("RightFrom(%q, %q) = %q, want %q", input, needle, result, expected)
@@ -70,7 +71,7 @@ func TestRightFrom_NeedleAtEnd(t *testing.T) {
 	input := "hello world"
 	needle := "world"
 	expected := ""
-	
+
 	result := str.RightFrom(input, needle)
 	if result != expected {
 		t.Errorf("RightFrom(%q, %q) = %q, want %q", input, needle, result, expected)

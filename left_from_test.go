@@ -2,7 +2,8 @@ package str_test
 
 import (
 	"testing"
-	"github.com/dracory/base/str"
+
+	"github.com/dracory/str"
 )
 
 // TestLeftFrom_Found tests the case where the needle is found in the string
@@ -10,7 +11,7 @@ func TestLeftFrom_Found(t *testing.T) {
 	input := "hello world"
 	needle := "world"
 	expected := "hello "
-	
+
 	result := str.LeftFrom(input, needle)
 	if result != expected {
 		t.Errorf("LeftFrom(%q, %q) = %q, want %q", input, needle, result, expected)
@@ -22,7 +23,7 @@ func TestLeftFrom_NotFound(t *testing.T) {
 	input := "hello world"
 	needle := "universe"
 	expected := ""
-	
+
 	result := str.LeftFrom(input, needle)
 	if result != expected {
 		t.Errorf("LeftFrom(%q, %q) = %q, want %q", input, needle, result, expected)
@@ -34,7 +35,7 @@ func TestLeftFrom_EmptyInput(t *testing.T) {
 	input := ""
 	needle := "world"
 	expected := ""
-	
+
 	result := str.LeftFrom(input, needle)
 	if result != expected {
 		t.Errorf("LeftFrom(%q, %q) = %q, want %q", input, needle, result, expected)
@@ -46,7 +47,7 @@ func TestLeftFrom_EmptyNeedle(t *testing.T) {
 	input := "hello world"
 	needle := ""
 	expected := ""
-	
+
 	result := str.LeftFrom(input, needle)
 	if result != expected {
 		t.Errorf("LeftFrom(%q, %q) = %q, want %q", input, needle, result, expected)
@@ -58,7 +59,7 @@ func TestLeftFrom_NeedleAtStart(t *testing.T) {
 	input := "world hello"
 	needle := "world"
 	expected := ""
-	
+
 	result := str.LeftFrom(input, needle)
 	if result != expected {
 		t.Errorf("LeftFrom(%q, %q) = %q, want %q", input, needle, result, expected)
@@ -70,7 +71,7 @@ func TestLeftFrom_NeedleAtEnd(t *testing.T) {
 	input := "hello world"
 	needle := "world"
 	expected := "hello "
-	
+
 	result := str.LeftFrom(input, needle)
 	if result != expected {
 		t.Errorf("LeftFrom(%q, %q) = %q, want %q", input, needle, result, expected)

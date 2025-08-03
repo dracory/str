@@ -29,7 +29,7 @@ This package includes utilities for:
 ### String Validation
 
 ```go
-import "github.com/dracory/base/str"
+import "github.com/dracory/str"
 
 // Check if a string is empty
 isEmpty := str.IsEmpty("")  // true
@@ -50,7 +50,7 @@ matches := str.Is("hello.txt", "*.txt")  // true
 ### String Manipulation
 
 ```go
-import "github.com/dracory/base/str"
+import "github.com/dracory/str"
 
 // Extract substring between two strings
 between := str.Between("Hello [World] Test", "[", "]")  // "World"
@@ -101,7 +101,7 @@ slug := str.Slugify("Hello World!", '-')  // "hello-world"
 ### String Encoding and Hashing
 
 ```go
-import "github.com/dracory/base/str"
+import "github.com/dracory/str"
 
 // Encode string to Base64
 base64 := str.Base64Encode("Hello World")  // "SGVsbG8gV29ybGQ="
@@ -128,7 +128,7 @@ matches := str.BcryptHashCompare("password", bcrypt)  // true
 ### String Generation
 
 ```go
-import "github.com/dracory/base/str"
+import "github.com/dracory/str"
 
 // Generate a random string
 random := str.Random(10)  // "a1b2c3d4e5"

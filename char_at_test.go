@@ -3,7 +3,7 @@ package str_test
 import (
 	"testing"
 
-	"github.com/dracory/base/str"
+	"github.com/dracory/str"
 )
 
 // TestCharAt tests the CharAt function with various scenarios

@@ -3,7 +3,7 @@ package str_test
 import (
 	"testing"
 
-	"github.com/dracory/base/str"
+	"github.com/dracory/str"
 )
 
 // TestSlugify_Basic tests basic slugification
