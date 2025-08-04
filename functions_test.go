@@ -3,7 +3,7 @@ package str
 import (
 	"testing"
 
-	"github.com/dracory/base/arr"
+	"github.com/dracory/arr"
 )
 
 func Test_fieldsFunc(t *testing.T) {
