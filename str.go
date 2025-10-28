@@ -75,15 +75,6 @@ package str
 // 	return s
 // }
 
-// // Remove returns the String instance with the first occurrence of the given value removed.
-// func (s *String) Remove(values ...string) *String {
-// 	for _, value := range values {
-// 		s.value = strings.ReplaceAll(s.value, value, "")
-// 	}
-
-// 	return s
-// }
-
 // // Repeat returns the String instance repeated the given number of times.
 // func (s *String) Repeat(times int) *String {
 // 	s.value = strings.Repeat(s.value, times)
