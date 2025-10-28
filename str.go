@@ -39,17 +39,6 @@ package str
 // 	return s.After(start).BeforeLast(end)
 // }
 
-// // EndsWith returns true if the string ends with the given value or any of the values.
-// func (s *String) EndsWith(values ...string) bool {
-// 	for _, value := range values {
-// 		if value != "" && strings.HasSuffix(s.value, value) {
-// 			return true
-// 		}
-// 	}
-
-// 	return false
-// }
-
 // // Exactly returns true if the string is exactly the given value.
 // func (s *String) Exactly(value string) bool {
 // 	return s.value == value
