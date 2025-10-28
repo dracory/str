@@ -39,22 +39,6 @@ package str
 // 	return s.After(start).BeforeLast(end)
 // }
 
-// // Dirname returns the String instance with the directory name of the current file path string.
-// func (s *String) Dirname(levels ...int) *String {
-// 	defaultLevels := 1
-// 	if len(levels) > 0 {
-// 		defaultLevels = levels[0]
-// 	}
-
-// 	dir := s.value
-// 	for i := 0; i < defaultLevels; i++ {
-// 		dir = filepath.Dir(dir)
-// 	}
-
-// 	s.value = dir
-// 	return s
-// }
-
 // // EndsWith returns true if the string ends with the given value or any of the values.
 // func (s *String) EndsWith(values ...string) bool {
 // 	for _, value := range values {
