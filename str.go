@@ -75,15 +75,6 @@ package str
 // 	return s
 // }
 
-// // MatchAll returns all matches for the given regular expression.
-// func (s *String) MatchAll(pattern string) []string {
-// 	if pattern == "" {
-// 		return []string{s.value}
-// 	}
-// 	reg := regexp.MustCompile(pattern)
-// 	return reg.FindAllString(s.value, -1)
-// }
-
 // // NewLine appends one or more new lines to the current string.
 // func NewLine(str string, count ...int) string {
 // 	if len(count) == 0 {
