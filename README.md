@@ -12,6 +12,7 @@ This package includes utilities for:
 3. **String Formatting**: Functions for formatting strings in various ways
 4. **String Conversion**: Functions for converting between different string formats and encodings
 5. **String Generation**: Functions for generating random strings and hashes
+6. **Price Formatting**: Functions for formatting prices with currency symbols
 
 ## Key Features
 
@@ -23,6 +24,7 @@ This package includes utilities for:
 - **String Hashing**: Generate hashes from strings (MD5, BCrypt, etc.)
 - **String Formatting**: Format strings with padding, truncation, etc.
 - **String Generation**: Generate random strings and identifiers
+- **Price Formatting**: Format prices with currency symbols (USD, GBP, EUR)
 
 ## Usage Examples
 
@@ -141,6 +143,54 @@ base32 := str.IntToBase32(12345)  // "3RP"
 
 // Convert integer to Base36
 base36 := str.IntToBase36(12345)  // "9IX"
+```
+
+### Price Formatting
+
+```go
+import "github.com/dracory/str"
+
+// Get currency symbol (Unicode by default)
+symbol := str.CurrencySymbol("USD")  // "$"
+symbol := str.CurrencySymbol("GBP")  // "£"
+symbol := str.CurrencySymbol("EUR")  // "€"
+symbol := str.CurrencySymbol("JPY")  // "¥"
+symbol := str.CurrencySymbol("INR")  // "₹"
+
+// Get currency symbol as HTML entity
+symbol := str.CurrencySymbol("GBP", true)  // "&pound;"
+symbol := str.CurrencySymbol("EUR", true)  // "&euro;"
+
+// Supports 40+ currencies including:
+// Major: USD, EUR, GBP, JPY, CNY, INR, KRW, RUB, TRY
+// Dollar variants: AUD, CAD, HKD, SGD, NZD, MXN, BRL, ARS
+// European: CHF, SEK, NOK, DKK, PLN, CZK, HUF, RON, BGN
+// Middle East & Africa: SAR, AED, ILS, ZAR, EGP, NGN, KES
+// Asian: THB, IDR, MYR, PHP, VND, PKR, BDT
+// Crypto: BTC, ETH
+
+// Convert float to formatted price string (Unicode by default)
+price := str.ToPrice(19.99, "USD")  // "$19.99"
+price := str.ToPrice(100.00, "GBP")  // "£100.00"
+price := str.ToPrice(5000.50, "JPY")  // "¥5000.50"
+
+// Convert float to formatted price string with HTML entity
+price := str.ToPrice(19.99, "GBP", true)  // "&pound;19.99"
+price := str.ToPrice(45.50, "EUR", true)  // "&euro;45.50"
+
+// Convert string to formatted price string (with error handling)
+price, err := str.ToPriceFromString("19.99", "USD")  // "$19.99", nil
+price, err := str.ToPriceFromString("invalid", "USD")  // "", error
+
+// Convert string to formatted price string with HTML entity
+price, err := str.ToPriceFromString("19.99", "GBP", true)  // "&pound;19.99", nil
+
+// Convert string to formatted price string (with default fallback)
+price := str.ToPriceFromStringOrDefault("19.99", "USD", "n/a")  // "$19.99"
+price := str.ToPriceFromStringOrDefault("invalid", "USD", "n/a")  // "n/a"
+
+// Convert string to formatted price string with HTML entity and default fallback
+price := str.ToPriceFromStringOrDefault("19.99", "EUR", "n/a", true)  // "&euro;19.99"
 ```
 
 ## Best Practices
