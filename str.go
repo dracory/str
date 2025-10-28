@@ -74,12 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // Tap passes the string to the given callback and returns the string.
-// func (s *String) Tap(callback func(String)) *String {
-// 	callback(*s)
-// 	return s
-// }
-
 // // Test returns true if the string matches the given pattern.
 // func (s *String) Test(pattern string) bool {
 // 	return s.IsMatch(pattern)
