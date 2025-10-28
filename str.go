@@ -74,28 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // Snake returns the String instance in snake case.
-// func (s *String) Snake(delimiter ...string) *String {
-// 	defaultDelimiter := "_"
-// 	if len(delimiter) > 0 {
-// 		defaultDelimiter = delimiter[0]
-// 	}
-// 	words := fieldsFunc(s.value, func(r rune) bool {
-// 		return r == ' ' || r == ',' || r == '.' || r == '-' || r == '_'
-// 	}, func(r rune) bool {
-// 		return unicode.IsUpper(r)
-// 	})
-
-// 	casesLower := cases.Lower(language.Und)
-// 	var studlyWords []string
-// 	for _, word := range words {
-// 		studlyWords = append(studlyWords, casesLower.String(word))
-// 	}
-
-// 	s.value = strings.Join(studlyWords, defaultDelimiter)
-// 	return s
-// }
-
 // // Split splits the string by given pattern string.
 // func (s *String) Split(pattern string, limit ...int) []string {
 // 	r := regexp.MustCompile(pattern)
