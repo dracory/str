@@ -74,40 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-
-// // Replace returns the String instance with all occurrences of the search string replaced by the given replacement string.
-// func (s *String) Replace(search string, replace string, caseSensitive ...bool) *String {
-// 	caseSensitive = append(caseSensitive, true)
-// 	if len(caseSensitive) > 0 && !caseSensitive[0] {
-// 		s.value = regexp.MustCompile("(?i)"+search).ReplaceAllString(s.value, replace)
-// 		return s
-// 	}
-// 	s.value = strings.ReplaceAll(s.value, search, replace)
-// 	return s
-// }
-
-// // ReplaceEnd returns the String instance with the last occurrence of the given value replaced.
-// func (s *String) ReplaceEnd(search string, replace string) *String {
-// 	if search == "" {
-// 		return s
-// 	}
-
-// 	if s.EndsWith(search) {
-// 		return s.ReplaceLast(search, replace)
-// 	}
-
-// 	return s
-// }
-
-// // ReplaceFirst returns the String instance with the first occurrence of the given value replaced.
-// func (s *String) ReplaceFirst(search string, replace string) *String {
-// 	if search == "" {
-// 		return s
-// 	}
-// 	s.value = strings.Replace(s.value, search, replace, 1)
-// 	return s
-// }
-
 // // ReplaceLast returns the String instance with the last occurrence of the given value replaced.
 // func (s *String) ReplaceLast(search string, replace string) *String {
 // 	if search == "" {
