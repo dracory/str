@@ -74,19 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // ReplaceStart returns the String instance with the first occurrence of the given value replaced.
-// func (s *String) ReplaceStart(search string, replace string) *String {
-// 	if search == "" {
-// 		return s
-// 	}
-
-// 	if s.StartsWith(search) {
-// 		return s.ReplaceFirst(search, replace)
-// 	}
-
-// 	return s
-// }
-
 // // RTrim returns the String instance with the right occurrences of the given value removed.
 // func (s *String) RTrim(characters ...string) *String {
 // 	if len(characters) == 0 {

@@ -1,5 +1,9 @@
 # Str Package
 
+[![Tests Status](https://github.com/dracory/str/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/dracory/str/actions/workflows/tests.yml)
+[![Go Report Card](https://goreportcard.com/badge/github.com/dracory/str)](https://goreportcard.com/report/github.com/dracory/str)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/dracory/str)](https://pkg.go.dev/github.com/dracory/str)
+
 The `str` package provides a comprehensive set of string manipulation utilities for the Dracory framework.
 It offers a wide range of functions for string operations, validation, transformation, and formatting.
 
