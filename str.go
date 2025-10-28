@@ -74,15 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // Squish returns the String instance with consecutive whitespace characters collapsed into a single space.
-// func (s *String) Squish() *String {
-// 	leadWhitespace := regexp.MustCompile(`^[\s\p{Zs}]+|[\s\p{Zs}]+$`)
-// 	insideWhitespace := regexp.MustCompile(`[\s\p{Zs}]{2,}`)
-// 	s.value = leadWhitespace.ReplaceAllString(s.value, "")
-// 	s.value = insideWhitespace.ReplaceAllString(s.value, " ")
-// 	return s
-// }
-
 // // Start returns the String instance with the given value prepended.
 // func (s *String) Start(prefix string) *String {
 // 	quoted := regexp.QuoteMeta(prefix)
