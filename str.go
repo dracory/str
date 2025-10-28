@@ -25,80 +25,9 @@ package str
 // 	Radius   int
 // 	Omission string
 // }
-
 // // Of creates a new String instance with the given value.
 // func Of(value string) *String {
 // 	return &String{value: value}
-// }
-
-// // Excerpt returns the String instance truncated to the given length.
-// func (s *String) Excerpt(phrase string, options ...ExcerptOption) *String {
-// 	defaultOptions := ExcerptOption{
-// 		Radius:   100,
-// 		Omission: "...",
-// 	}
-
-// 	if len(options) > 0 {
-// 		if options[0].Radius != 0 {
-// 			defaultOptions.Radius = options[0].Radius
-// 		}
-// 		if options[0].Omission != "" {
-// 			defaultOptions.Omission = options[0].Omission
-// 		}
-// 	}
-
-// 	radius := maximum(0, defaultOptions.Radius)
-// 	omission := defaultOptions.Omission
-
-// 	regex := regexp.MustCompile(`(.*?)(` + regexp.QuoteMeta(phrase) + `)(.*)`)
-// 	matches := regex.FindStringSubmatch(s.value)
-
-// 	if len(matches) == 0 {
-// 		return s
-// 	}
-
-// 	start := strings.TrimRight(matches[1], "")
-// 	end := strings.TrimLeft(matches[3], "")
-
-// 	end = Of(Substr(end, 0, radius)).LTrim("").
-// 		Unless(func(s *String) bool {
-// 			return s.Exactly(end)
-// 		}, func(s *String) *String {
-// 			return s.Append(omission)
-// 		}).String()
-
-// 	s.value = Of(Substr(start, maximum(len(start)-radius, 0), radius)).LTrim("").
-// 		Unless(func(s *String) bool {
-// 			return s.Exactly(start)
-// 		}, func(s *String) *String {
-// 			return s.Prepend(omission)
-// 		}).Append(matches[2], end).String()
-
-// 	return s
-// }
-
-// // Explode splits the string by given delimiter string.
-// func (s *String) Explode(delimiter string, limit ...int) []string {
-// 	defaultLimit := 1
-// 	isLimitSet := false
-// 	if len(limit) > 0 && limit[0] != 0 {
-// 		defaultLimit = limit[0]
-// 		isLimitSet = true
-// 	}
-// 	tempExplode := strings.Split(s.value, delimiter)
-// 	if !isLimitSet || len(tempExplode) <= defaultLimit {
-// 		return tempExplode
-// 	}
-
-// 	if defaultLimit > 0 {
-// 		return append(tempExplode[:defaultLimit-1], strings.Join(tempExplode[defaultLimit-1:], delimiter))
-// 	}
-
-// 	if defaultLimit < 0 && len(tempExplode) <= -defaultLimit {
-// 		return []string{}
-// 	}
-
-// 	return tempExplode[:len(tempExplode)+defaultLimit]
 // }
 
 // // Finish returns the String instance with the given value appended.
