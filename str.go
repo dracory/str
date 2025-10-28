@@ -31,19 +31,6 @@ package str
 // 	return &String{value: value}
 // }
 
-// // Between returns the String instance with the substring between the given start and end strings.
-// func (s *String) Between(start, end string) *String {
-// 	if start == "" || end == "" {
-// 		return s
-// 	}
-// 	return s.After(start).BeforeLast(end)
-// }
-
-// // Exactly returns true if the string is exactly the given value.
-// func (s *String) Exactly(value string) bool {
-// 	return s.value == value
-// }
-
 // // Excerpt returns the String instance truncated to the given length.
 // func (s *String) Excerpt(phrase string, options ...ExcerptOption) *String {
 // 	defaultOptions := ExcerptOption{
