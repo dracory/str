@@ -75,18 +75,6 @@ package str
 // 	return s
 // }
 
-// // Pipe passes the string to the given callback and returns the result.
-// func (s *String) Pipe(callback func(s string) string) *String {
-// 	s.value = callback(s.value)
-// 	return s
-// }
-
-// // Prepend one or more strings to the current string.
-// func (s *String) Prepend(values ...string) *String {
-// 	s.value = strings.Join(values, "") + s.value
-// 	return s
-// }
-
 // // Remove returns the String instance with the first occurrence of the given value removed.
 // func (s *String) Remove(values ...string) *String {
 // 	for _, value := range values {
