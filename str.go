@@ -74,17 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // StartsWith returns true if the string starts with the given value or any of the values.
-// func (s *String) StartsWith(values ...string) bool {
-// 	for _, value := range values {
-// 		if strings.HasPrefix(s.value, value) {
-// 			return true
-// 		}
-// 	}
-
-// 	return false
-// }
-
 // // Studly returns the String instance in studly case.
 // func (s *String) Studly() *String {
 // 	words := fieldsFunc(s.value, func(r rune) bool {
