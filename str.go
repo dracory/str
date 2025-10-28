@@ -74,14 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // Unless returns the String instance with the given fallback applied if the given condition is false.
-// func (s *String) Unless(callback func(*String) bool, fallback func(*String) *String) *String {
-// 	if !callback(s) {
-// 		return fallback(s)
-// 	}
-
-// 	return s
-// }
 
 // // When returns the String instance with the given callback applied if the given condition is true.
 // // If the condition is false, the fallback callback is applied (if provided).
@@ -97,11 +89,6 @@ package str
 // 	}
 
 // 	return s
-// }
-
-// // WhenContains returns the String instance with the given callback applied if the string contains the given value.
-// func (s *String) WhenContains(value string, callback ...func(*String) *String) *String {
-// 	return s.When(s.Contains(value), callback...)
 // }
 
 // // WhenContainsAll returns the String instance with the given callback applied if the string contains all the given values.
