@@ -74,29 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // Test returns true if the string matches the given pattern.
-// func (s *String) Test(pattern string) bool {
-// 	return s.IsMatch(pattern)
-// }
-
-// // Title returns the String instance in title case.
-// func (s *String) Title() *String {
-// 	casesTitle := cases.Title(language.Und)
-// 	s.value = casesTitle.String(s.value)
-// 	return s
-// }
-
-// // Trim returns the String instance with trimmed characters from the left and right sides.
-// func (s *String) Trim(characters ...string) *String {
-// 	if len(characters) == 0 {
-// 		s.value = strings.TrimSpace(s.value)
-// 		return s
-// 	}
-
-// 	s.value = strings.Trim(s.value, characters[0])
-// 	return s
-// }
-
 // // Unless returns the String instance with the given fallback applied if the given condition is false.
 // func (s *String) Unless(callback func(*String) bool, fallback func(*String) *String) *String {
 // 	if !callback(s) {
