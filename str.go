@@ -39,17 +39,6 @@ package str
 // 	return s.After(start).BeforeLast(end)
 // }
 
-// // ContainsAll returns true if the string contains all of the given values.
-// func (s *String) ContainsAll(values ...string) bool {
-// 	for _, value := range values {
-// 		if !strings.Contains(s.value, value) {
-// 			return false
-// 		}
-// 	}
-
-// 	return true
-// }
-
 // // Dirname returns the String instance with the directory name of the current file path string.
 // func (s *String) Dirname(levels ...int) *String {
 // 	defaultLevels := 1
