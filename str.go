@@ -74,20 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // ReplaceLast returns the String instance with the last occurrence of the given value replaced.
-// func (s *String) ReplaceLast(search string, replace string) *String {
-// 	if search == "" {
-// 		return s
-// 	}
-// 	index := strings.LastIndex(s.value, search)
-// 	if index != -1 {
-// 		s.value = s.value[:index] + replace + s.value[index+len(search):]
-// 		return s
-// 	}
-
-// 	return s
-// }
-
 // // ReplaceMatches returns the String instance with all occurrences of the given pattern
 // // replaced by the given replacement string.
 // func (s *String) ReplaceMatches(pattern string, replace string) *String {
