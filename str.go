@@ -75,16 +75,6 @@ package str
 // 	return s
 // }
 
-// // Match returns the String instance with the first occurrence of the given pattern.
-// func (s *String) Match(pattern string) *String {
-// 	if pattern == "" {
-// 		return s
-// 	}
-// 	reg := regexp.MustCompile(pattern)
-// 	s.value = reg.FindString(s.value)
-// 	return s
-// }
-
 // // MatchAll returns all matches for the given regular expression.
 // func (s *String) MatchAll(pattern string) []string {
 // 	if pattern == "" {
