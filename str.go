@@ -75,40 +75,6 @@ package str
 // 	return s
 // }
 
-// // Mask returns the String instance with the given character masking the specified number of characters.
-// func (s *String) Mask(character string, index int, length ...int) *String {
-// 	// Check if the character is empty, if so, return the original string.
-// 	if character == "" {
-// 		return s
-// 	}
-
-// 	segment := Substr(s.value, index, length...)
-
-// 	// Check if the segment is empty, if so, return the original string.
-// 	if segment == "" {
-// 		return s
-// 	}
-
-// 	strLen := utf8.RuneCountInString(s.value)
-// 	startIndex := index
-
-// 	// Check if the start index is out of bounds.
-// 	if index < 0 {
-// 		if index < -strLen {
-// 			startIndex = 0
-// 		} else {
-// 			startIndex = strLen + index
-// 		}
-// 	}
-
-// 	start := Substr(s.value, 0, startIndex)
-// 	segmentLen := utf8.RuneCountInString(segment)
-// 	end := Substr(s.value, startIndex+segmentLen)
-
-// 	s.value = start + strings.Repeat(Substr(character, 0, 1), segmentLen) + end
-// 	return s
-// }
-
 // // Match returns the String instance with the first occurrence of the given pattern.
 // func (s *String) Match(pattern string) *String {
 // 	if pattern == "" {
