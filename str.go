@@ -31,16 +31,6 @@ package str
 // 	return &String{value: value}
 // }
 
-// // Basename returns the String instance with the basename of the current file path string,
-// // and trims the suffix based on the parameter(optional).
-// func (s *String) Basename(suffix ...string) *String {
-// 	s.value = filepath.Base(s.value)
-// 	if len(suffix) > 0 && suffix[0] != "" {
-// 		s.value = strings.TrimSuffix(s.value, suffix[0])
-// 	}
-// 	return s
-// }
-
 // // Between returns the String instance with the substring between the given start and end strings.
 // func (s *String) Between(start, end string) *String {
 // 	if start == "" || end == "" {
@@ -713,20 +703,6 @@ package str
 // 	return s.When(s.Test(pattern), callback...)
 // }
 
-// func Random(length int) string {
-// 	b := make([]byte, length)
-// 	_, err := rand.Read(b)
-// 	if err != nil {
-// 		panic(err)
-// 	}
-// 	letters := "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-// 	for i, v := range b {
-// 		b[i] = letters[v%byte(len(letters))]
-// 	}
-
-// 	return string(b)
-// }
-
 // type Buffer struct {
 // 	*bytes.Buffer
 // }
@@ -759,45 +735,6 @@ package str
 // 	b.WriteString(s)
 
 // 	return b
-// }
-
-// // fieldsFunc splits the input string into words with preservation, following the rules defined by
-// // the provided functions f and preserveFunc.
-// func fieldsFunc(s string, f func(rune) bool, preserveFunc ...func(rune) bool) []string {
-// 	var fields []string
-// 	var currentField strings.Builder
-
-// 	shouldPreserve := func(r rune) bool {
-// 		for _, preserveFn := range preserveFunc {
-// 			if preserveFn(r) {
-// 				return true
-// 			}
-// 		}
-// 		return false
-// 	}
-
-// 	for _, r := range s {
-// 		if f(r) {
-// 			if currentField.Len() > 0 {
-// 				fields = append(fields, currentField.String())
-// 				currentField.Reset()
-// 			}
-// 		} else if shouldPreserve(r) {
-// 			if currentField.Len() > 0 {
-// 				fields = append(fields, currentField.String())
-// 				currentField.Reset()
-// 			}
-// 			currentField.WriteRune(r)
-// 		} else {
-// 			currentField.WriteRune(r)
-// 		}
-// 	}
-
-// 	if currentField.Len() > 0 {
-// 		fields = append(fields, currentField.String())
-// 	}
-
-// 	return fields
 // }
 
 // // maximum returns the largest of x or y.
