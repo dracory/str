@@ -75,17 +75,6 @@ package str
 // 	return s
 // }
 
-// // NewLine appends one or more new lines to the current string.
-// func NewLine(str string, count ...int) string {
-// 	if len(count) == 0 {
-// 		str += "\n"
-// 		return str
-// 	}
-
-// 	str += strings.Repeat("\n", count[0])
-// 	return str
-// }
-
 // // PadBoth returns the String instance padded to the left and right sides of the given length.
 // func (s *String) PadBoth(length int, pad ...string) *String {
 // 	defaultPad := " "
