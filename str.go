@@ -44,20 +44,6 @@ package str
 // 	return s.Snake("-")
 // }
 
-// // LcFirst returns the String instance with the first character lowercased.
-// func (s *String) LcFirst() *String {
-// 	if s.Length() == 0 {
-// 		return s
-// 	}
-// 	s.value = strings.ToLower(Substr(s.value, 0, 1)) + Substr(s.value, 1)
-// 	return s
-// }
-
-// // Length returns the length of the string.
-// func (s *String) Length() int {
-// 	return utf8.RuneCountInString(s.value)
-// }
-
 // // Limit returns the String instance truncated to the given length.
 // func (s *String) Limit(limit int, end ...string) *String {
 // 	defaultEnd := "..."
