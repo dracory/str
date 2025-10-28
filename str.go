@@ -74,17 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // Split splits the string by given pattern string.
-// func (s *String) Split(pattern string, limit ...int) []string {
-// 	r := regexp.MustCompile(pattern)
-// 	defaultLimit := -1
-// 	if len(limit) != 0 {
-// 		defaultLimit = limit[0]
-// 	}
-
-// 	return r.Split(s.value, defaultLimit)
-// }
-
 // // Squish returns the String instance with consecutive whitespace characters collapsed into a single space.
 // func (s *String) Squish() *String {
 // 	leadWhitespace := regexp.MustCompile(`^[\s\p{Zs}]+|[\s\p{Zs}]+$`)
