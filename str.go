@@ -74,14 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // Start returns the String instance with the given value prepended.
-// func (s *String) Start(prefix string) *String {
-// 	quoted := regexp.QuoteMeta(prefix)
-// 	re := regexp.MustCompile(`^(` + quoted + `)+`)
-// 	s.value = prefix + re.ReplaceAllString(s.value, "")
-// 	return s
-// }
-
 // // StartsWith returns true if the string starts with the given value or any of the values.
 // func (s *String) StartsWith(values ...string) bool {
 // 	for _, value := range values {
