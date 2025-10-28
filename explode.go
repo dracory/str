@@ -22,8 +22,7 @@ func Explode(str, delimiter string, limit ...int) []string {
 	}
 
 	if defaultLimit > 0 {
-		head := make([]string, 0, defaultLimit)
-		head = append(head, parts[:defaultLimit-1]...)
+		head := append([]string{}, parts[:defaultLimit-1]...)
 		head = append(head, strings.Join(parts[defaultLimit-1:], delimiter))
 		return head
 	}

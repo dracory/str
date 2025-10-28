@@ -39,24 +39,6 @@ package str
 // 	return s
 // }
 
-// // Headline returns the String instance in headline case.
-// func (s *String) Headline() *String {
-// 	parts := s.Explode(" ")
-
-// 	if len(parts) > 1 {
-// 		return s.Title()
-// 	}
-
-// 	parts = Of(strings.Join(parts, "_")).Studly().UcSplit()
-// 	collapsed := Of(strings.Join(parts, "_")).
-// 		Replace("-", "_").
-// 		Replace(" ", "_").
-// 		Replace("_", "_").Explode("_")
-
-// 	s.value = strings.Join(collapsed, " ")
-// 	return s
-// }
-
 // // Kebab returns the String instance in kebab case.
 // func (s *String) Kebab() *String {
 // 	return s.Snake("-")
