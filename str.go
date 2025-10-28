@@ -75,21 +75,6 @@ package str
 // 	return s
 // }
 
-// // PadBoth returns the String instance padded to the left and right sides of the given length.
-// func (s *String) PadBoth(length int, pad ...string) *String {
-// 	defaultPad := " "
-// 	if len(pad) > 0 {
-// 		defaultPad = pad[0]
-// 	}
-// 	short := maximum(0, length-s.Length())
-// 	left := short / 2
-// 	right := short/2 + short%2
-
-// 	s.value = Substr(strings.Repeat(defaultPad, left), 0, left) + s.value + Substr(strings.Repeat(defaultPad, right), 0, right)
-
-// 	return s
-// }
-
 // // PadLeft returns the String instance padded to the left side of the given length.
 // func (s *String) PadLeft(length int, pad ...string) *String {
 // 	defaultPad := " "
