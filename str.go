@@ -39,17 +39,6 @@ package str
 // 	return s.After(start).BeforeLast(end)
 // }
 
-// // Contains returns true if the string contains the given value or any of the values.
-// func (s *String) Contains(values ...string) bool {
-// 	for _, value := range values {
-// 		if value != "" && strings.Contains(s.value, value) {
-// 			return true
-// 		}
-// 	}
-
-// 	return false
-// }
-
 // // ContainsAll returns true if the string contains all of the given values.
 // func (s *String) ContainsAll(values ...string) bool {
 // 	for _, value := range values {

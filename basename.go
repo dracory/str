@@ -1,6 +1,7 @@
 package str
 
 import (
+	"path"
 	"path/filepath"
 	"strings"
 )
@@ -9,8 +10,8 @@ import (
 // and trims the suffix based on the parameter (optional).
 // Example: Basename("/path/to/file.txt") returns "file.txt"
 // Example: Basename("/path/to/file.txt", ".txt") returns "file"
-func Basename(path string, suffix ...string) string {
-	base := filepath.Base(path)
+func Basename(p string, suffix ...string) string {
+	base := path.Base(filepath.ToSlash(p))
 	if len(suffix) > 0 && suffix[0] != "" {
 		base = strings.TrimSuffix(base, suffix[0])
 	}
