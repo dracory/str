@@ -75,18 +75,6 @@ package str
 // 	return s
 // }
 
-// // PadRight returns the String instance padded to the right side of the given length.
-// func (s *String) PadRight(length int, pad ...string) *String {
-// 	defaultPad := " "
-// 	if len(pad) > 0 {
-// 		defaultPad = pad[0]
-// 	}
-// 	short := maximum(0, length-s.Length())
-
-// 	s.value = s.value + Substr(strings.Repeat(defaultPad, short), 0, short)
-// 	return s
-// }
-
 // // Pipe passes the string to the given callback and returns the result.
 // func (s *String) Pipe(callback func(s string) string) *String {
 // 	s.value = callback(s.value)
