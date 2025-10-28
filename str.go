@@ -39,32 +39,6 @@ package str
 // 	return s.After(start).BeforeLast(end)
 // }
 
-// // ChopEnd remove the given string(s) if it exists at the end of the haystack.
-// func (s *String) ChopEnd(needle string, more ...string) *String {
-// 	more = append([]string{needle}, more...)
-
-// 	for _, v := range more {
-// 		if s.EndsWith(v) {
-// 			s.value = strings.TrimRight(s.value, v)
-// 			break
-// 		}
-// 	}
-// 	return s
-// }
-
-// // ChopStart remove the given string(s) if it exists at the start of the haystack.
-// func (s *String) ChopStart(needle string, more ...string) *String {
-// 	more = append([]string{needle}, more...)
-
-// 	for _, v := range more {
-// 		if s.StartsWith(v) {
-// 			s.value = strings.TrimLeft(s.value, v)
-// 			break
-// 		}
-// 	}
-// 	return s
-// }
-
 // // Contains returns true if the string contains the given value or any of the values.
 // func (s *String) Contains(values ...string) bool {
 // 	for _, value := range values {
