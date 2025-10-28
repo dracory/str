@@ -75,12 +75,6 @@ package str
 // 	return s
 // }
 
-// // Repeat returns the String instance repeated the given number of times.
-// func (s *String) Repeat(times int) *String {
-// 	s.value = strings.Repeat(s.value, times)
-// 	return s
-// }
-
 // // Replace returns the String instance with all occurrences of the search string replaced by the given replacement string.
 // func (s *String) Replace(search string, replace string, caseSensitive ...bool) *String {
 // 	caseSensitive = append(caseSensitive, true)
