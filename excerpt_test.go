@@ -34,7 +34,7 @@ func TestExcerpt(t *testing.T) {
 			str:    "Pack my box with five dozen liquor jugs",
 			phrase: "five",
 			options: []ExcerptOption{{Radius: 4, Omission: "~~~"}},
-			want:   "~~~box five doze~~~",
+			want:   "~~~ith five doz~~~",
 		},
 		{
 			name:   "zero radius keeps only phrase",

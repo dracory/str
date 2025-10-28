@@ -1,6 +1,9 @@
 package str
 
-import "strings"
+import (
+	"strings"
+	"unicode/utf8"
+)
 
 // ExcerptOption configures the behaviour of Excerpt.
 type ExcerptOption struct {
@@ -9,7 +12,7 @@ type ExcerptOption struct {
 }
 
 // Excerpt returns a substring surrounding the first occurrence of phrase.
-// The radius controls how many characters (runes) are kept on each side of the phrase,
+// The radius controls how many runes are kept on each side of the phrase,
 // and omission specifies the string to append when content is truncated.
 // If phrase is not found, the original string is returned unchanged.
 func Excerpt(str, phrase string, options ...ExcerptOption) string {
@@ -19,9 +22,7 @@ func Excerpt(str, phrase string, options ...ExcerptOption) string {
 
 	opts := ExcerptOption{Radius: 100, Omission: "..."}
 	if len(options) > 0 {
-		if options[0].Radius != 0 {
-			opts.Radius = options[0].Radius
-		}
+		opts.Radius = options[0].Radius
 		if options[0].Omission != "" {
 			opts.Omission = options[0].Omission
 		}
@@ -32,38 +33,30 @@ func Excerpt(str, phrase string, options ...ExcerptOption) string {
 		radius = 0
 	}
 
-	index := strings.Index(str, phrase)
-	if index == -1 {
+	idx := strings.Index(str, phrase)
+	if idx == -1 {
 		return str
 	}
 
-	runes := []rune(str)
-	phraseRunes := []rune(phrase)
+	before := str[:idx]
+	after := str[idx+len(phrase):]
 
-	startRune := len([]rune(str[:index]))
-	endRune := startRune + len(phraseRunes)
+	startLen := utf8.RuneCountInString(before)
+	startSlice := Substr(before, Maximum(startLen-radius, 0), radius)
+	startBuilder := Of(startSlice)
+	startBuilder = startBuilder.Unless(func(sb *StringBuilder) bool {
+		return sb.Exactly(before)
+	}, func(sb *StringBuilder) *StringBuilder {
+		return sb.Prepend(opts.Omission)
+	})
 
-	prefixStart := startRune - radius
-	if prefixStart < 0 {
-		prefixStart = 0
-	}
+	endSlice := Substr(after, 0, radius)
+	endBuilder := Of(endSlice)
+	endBuilder = endBuilder.Unless(func(sb *StringBuilder) bool {
+		return sb.Exactly(after)
+	}, func(sb *StringBuilder) *StringBuilder {
+		return sb.Append(opts.Omission)
+	})
 
-	suffixEnd := endRune + radius
-	if suffixEnd > len(runes) {
-		suffixEnd = len(runes)
-	}
-
-	prefix := string(runes[prefixStart:startRune])
-	suffix := string(runes[endRune:suffixEnd])
-
-	if prefixStart > 0 {
-		prefix = strings.TrimLeft(prefix, " ")
-		prefix = opts.Omission + prefix
-	}
-
-	if suffixEnd < len(runes) {
-		suffix = strings.TrimRight(suffix, " ") + opts.Omission
-	}
-
-	return prefix + string(runes[startRune:endRune]) + suffix
+	return startBuilder.Append(phrase, endBuilder.String()).String()
 }
