@@ -39,19 +39,6 @@ package str
 // 	return s.After(start).BeforeLast(end)
 // }
 
-// // BetweenFirst returns the String instance with the substring between the first occurrence of the given start string and the given end string.
-// func (s *String) BetweenFirst(start, end string) *String {
-// 	if start == "" || end == "" {
-// 		return s
-// 	}
-// 	return s.Before(end).After(start)
-// }
-
-// // Camel returns the String instance in camel case.
-// func (s *String) Camel() *String {
-// 	return s.Studly().LcFirst()
-// }
-
 // // ChopEnd remove the given string(s) if it exists at the end of the haystack.
 // func (s *String) ChopEnd(needle string, more ...string) *String {
 // 	more = append([]string{needle}, more...)
