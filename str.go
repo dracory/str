@@ -74,17 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // RTrim returns the String instance with the right occurrences of the given value removed.
-// func (s *String) RTrim(characters ...string) *String {
-// 	if len(characters) == 0 {
-// 		s.value = strings.TrimRight(s.value, " ")
-// 		return s
-// 	}
-
-// 	s.value = strings.TrimRight(s.value, characters[0])
-// 	return s
-// }
-
 // // Snake returns the String instance in snake case.
 // func (s *String) Snake(delimiter ...string) *String {
 // 	defaultDelimiter := "_"
