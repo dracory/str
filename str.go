@@ -74,42 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // Studly returns the String instance in studly case.
-// func (s *String) Studly() *String {
-// 	words := fieldsFunc(s.value, func(r rune) bool {
-// 		return r == '_' || r == ' ' || r == '-' || r == ',' || r == '.'
-// 	}, func(r rune) bool {
-// 		return unicode.IsUpper(r)
-// 	})
-
-// 	casesTitle := cases.Title(language.Und)
-// 	var studlyWords []string
-// 	for _, word := range words {
-// 		studlyWords = append(studlyWords, casesTitle.String(word))
-// 	}
-
-// 	s.value = strings.Join(studlyWords, "")
-// 	return s
-// }
-
-// // Swap replaces all occurrences of the search string with the given replacement string.
-// func (s *String) Swap(replacements map[string]string) *String {
-// 	if len(replacements) == 0 {
-// 		return s
-// 	}
-
-// 	oldNewPairs := make([]string, 0, len(replacements)*2)
-// 	for k, v := range replacements {
-// 		if k == "" {
-// 			return s
-// 		}
-// 		oldNewPairs = append(oldNewPairs, k, v)
-// 	}
-
-// 	s.value = strings.NewReplacer(oldNewPairs...).Replace(s.value)
-// 	return s
-// }
-
 // // Tap passes the string to the given callback and returns the string.
 // func (s *String) Tap(callback func(String)) *String {
 // 	callback(*s)
