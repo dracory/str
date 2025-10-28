@@ -74,13 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // ReplaceMatches returns the String instance with all occurrences of the given pattern
-// // replaced by the given replacement string.
-// func (s *String) ReplaceMatches(pattern string, replace string) *String {
-// 	s.value = regexp.MustCompile(pattern).ReplaceAllString(s.value, replace)
-// 	return s
-// }
-
 // // ReplaceStart returns the String instance with the first occurrence of the given value replaced.
 // func (s *String) ReplaceStart(search string, replace string) *String {
 // 	if search == "" {
