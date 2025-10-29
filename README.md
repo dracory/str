@@ -27,6 +27,7 @@ This package includes utilities for:
 - **String Encoding**: Encode and decode strings using various encodings (Base32, Base64, etc.)
 - **String Hashing**: Generate hashes from strings (MD5, BCrypt, etc.)
 - **String Formatting**: Format strings with padding, truncation, etc.
+- **Conditional Helpers**: Run callbacks when predicates (empty, pattern match, UUID/ULID, etc.) succeed
 - **String Generation**: Generate random strings and identifiers
 - **Price Formatting**: Format prices with currency symbols (USD, GBP, EUR)
 
@@ -51,6 +52,9 @@ isULID := str.IsULID("01H9Z8K2P3M4N5Q6R7S8T9U0V")  // true
 
 // Check if a string matches a pattern
 matches := str.Is("hello.txt", "*.txt")  // true
+
+// Check if a string matches a regular expression pattern
+matchesRegex := str.Test("hello123", `^hello\d+$`)  // true
 ```
 
 ### String Manipulation
@@ -82,8 +86,14 @@ rightFrom := str.RightFrom("Hello World", 5)  // "World"
 // Truncate a string
 truncated := str.Truncate("Hello World", 8, "...")  // "Hello..."
 
+// Limit a string by rune length with optional suffix
+limited := str.Limit("Hello World", 5)  // "Hello..."
+
 // Convert to snake_case
 snake := str.ToSnake("HelloWorld")  // "hello_world"
+
+// Convert to kebab-case
+kebab := str.Kebab("HelloWorld")  // "hello-world"
 
 // Convert to camelCase
 camel := str.ToCamel("hello_world")  // "helloWorld"
@@ -147,6 +157,38 @@ base32 := str.IntToBase32(12345)  // "3RP"
 
 // Convert integer to Base36
 base36 := str.IntToBase36(12345)  // "9IX"
+```
+
+### Conditional Helpers
+
+```go
+import "github.com/dracory/str"
+
+result := str.When("admin", str.Is("admin", "admin"), func(s string) string {
+    return s + "@example.com"
+})
+// result == "admin@example.com"
+
+result = str.WhenEmpty("", func(_ string) string { return "fallback" })
+// result == "fallback"
+
+result = str.WhenIsUUID("123e4567-e89b-12d3-a456-426614174000", func(s string) string {
+    return "valid:" + s
+})
+// result == "valid:123e4567-e89b-12d3-a456-426614174000"
+```
+
+### Buffer Utility
+
+```go
+import "github.com/dracory/str"
+
+buf := str.NewBuffer()
+buf.Append("user-")
+buf.Append(42)
+buf.Append(true)
+
+result := buf.String()  // "user-42true"
 ```
 
 ### Price Formatting
