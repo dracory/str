@@ -74,41 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // WhenContainsAll returns the String instance with the given callback applied if the string contains all the given values.
-// func (s *String) WhenContainsAll(values []string, callback ...func(*String) *String) *String {
-// 	return s.When(s.ContainsAll(values...), callback...)
-// }
-
-// // WhenEmpty returns the String instance with the given callback applied if the string is empty.
-// func (s *String) WhenEmpty(callback ...func(*String) *String) *String {
-// 	return s.When(s.IsEmpty(), callback...)
-// }
-
-// // WhenIsAscii returns the String instance with the given callback applied if the string contains only ASCII characters.
-// func (s *String) WhenIsAscii(callback ...func(*String) *String) *String {
-// 	return s.When(s.IsAscii(), callback...)
-// }
-
-// // WhenNotEmpty returns the String instance with the given callback applied if the string is not empty.
-// func (s *String) WhenNotEmpty(callback ...func(*String) *String) *String {
-// 	return s.When(s.IsNotEmpty(), callback...)
-// }
-
-// // WhenStartsWith returns the String instance with the given callback applied if the string starts with the given value.
-// func (s *String) WhenStartsWith(value []string, callback ...func(*String) *String) *String {
-// 	return s.When(s.StartsWith(value...), callback...)
-// }
-
-// // WhenEndsWith returns the String instance with the given callback applied if the string ends with the given value.
-// func (s *String) WhenEndsWith(value []string, callback ...func(*String) *String) *String {
-// 	return s.When(s.EndsWith(value...), callback...)
-// }
-
-// // WhenExactly returns the String instance with the given callback applied if the string is exactly the given value.
-// func (s *String) WhenExactly(value string, callback ...func(*String) *String) *String {
-// 	return s.When(s.Exactly(value), callback...)
-// }
-
 // // WhenNotExactly returns the String instance with the given callback applied if the string is not exactly the given value.
 // func (s *String) WhenNotExactly(value string, callback ...func(*String) *String) *String {
 // 	return s.When(!s.Exactly(value), callback...)
