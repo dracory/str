@@ -74,26 +74,6 @@ package str
 // 	s.value = strings.TrimLeft(s.value, characters[0])
 // 	return s
 // }
-// // WhenNotExactly returns the String instance with the given callback applied if the string is not exactly the given value.
-// func (s *String) WhenNotExactly(value string, callback ...func(*String) *String) *String {
-// 	return s.When(!s.Exactly(value), callback...)
-// }
-
-// // WhenIs returns the String instance with the given callback applied if the string matches any of the given patterns.
-// func (s *String) WhenIs(value string, callback ...func(*String) *String) *String {
-// 	return s.When(s.Is(value), callback...)
-// }
-
-// // WhenIsUlid returns the String instance with the given callback applied if the string is a valid ULID.
-// func (s *String) WhenIsUlid(callback ...func(*String) *String) *String {
-// 	return s.When(s.IsUlid(), callback...)
-// }
-
-// // WhenIsUuid returns the String instance with the given callback applied if the string is a valid UUID.
-// func (s *String) WhenIsUuid(callback ...func(*String) *String) *String {
-// 	return s.When(s.IsUuid(), callback...)
-// }
-
 // // WhenTest returns the String instance with the given callback applied if the string matches the given pattern.
 // func (s *String) WhenTest(pattern string, callback ...func(*String) *String) *String {
 // 	return s.When(s.Test(pattern), callback...)
