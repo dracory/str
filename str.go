@@ -58,27 +58,6 @@ package str
 // 	return s
 // }
 
-// // Lower returns the String instance in lower case.
-// func (s *String) Lower() *String {
-// 	s.value = strings.ToLower(s.value)
-// 	return s
-// }
-
-// // Ltrim returns the String instance with the leftmost occurrence of the given value removed.
-// func (s *String) LTrim(characters ...string) *String {
-// 	if len(characters) == 0 {
-// 		s.value = strings.TrimLeft(s.value, " ")
-// 		return s
-// 	}
-
-// 	s.value = strings.TrimLeft(s.value, characters[0])
-// 	return s
-// }
-// // WhenTest returns the String instance with the given callback applied if the string matches the given pattern.
-// func (s *String) WhenTest(pattern string, callback ...func(*String) *String) *String {
-// 	return s.When(s.Test(pattern), callback...)
-// }
-
 // type Buffer struct {
 // 	*bytes.Buffer
 // }
