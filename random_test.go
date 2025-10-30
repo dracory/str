@@ -1,8 +1,8 @@
 package str_test
 
 import (
-	"regexp"
 	"testing"
+	"unicode"
 
 	"github.com/dracory/str"
 )
@@ -34,10 +34,11 @@ func TestRandom(t *testing.T) {
 					t.Errorf("Random(%d) = %d, want %d", tc.length, len(result), tc.length)
 				}
 
-				// Check if the result is a valid base64 string
-				matched, _ := regexp.MatchString(`^[a-zA-Z0-9+/]*={0,2}$`, result)
-				if !matched && tc.length > 0 {
-					t.Errorf("Random(%d) = %q, want a valid base64 string", tc.length, result)
+				for _, r := range result {
+					if !unicode.IsLetter(r) && !unicode.IsDigit(r) {
+						t.Errorf("Random(%d) contains non-alphanumeric rune %q", tc.length, r)
+						break
+					}
 				}
 			}
 		})
