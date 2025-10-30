@@ -25,6 +25,8 @@ func TestIsMatchBasic(t *testing.T) {
 		{"Hello World", []string{".*"}, true},
 		{"Hello World", []string{"Hello", "Hi"}, true},
 		{"Hello World", []string{"Hi", "Bye"}, false},
+		{"Hello World", []string{"(", "Hello"}, true},
+		{"Hello World", []string{"("}, false},
 	}
 
 	for _, tc := range testCases {

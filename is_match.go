@@ -13,7 +13,11 @@ func IsMatch(str string, patterns ...string) bool {
 			continue
 		}
 
-		reg := regexp.MustCompile(pattern)
+		reg, err := regexp.Compile(pattern)
+		if err != nil {
+			continue
+		}
+
 		if reg.MatchString(str) {
 			return true
 		}

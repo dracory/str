@@ -33,6 +33,12 @@ func TestMatch(t *testing.T) {
 			pattern: `\p{L}+`,
 			want:    "Привет",
 		},
+		{
+			name:    "invalid pattern returns empty",
+			in:      "foo",
+			pattern: "(",
+			want:    "",
+		},
 	}
 
 	for _, tt := range tests {

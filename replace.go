@@ -18,8 +18,12 @@ func Replace(str, search, replace string, caseSensitive ...bool) string {
 	}
 
 	if !sensitive {
-		pattern := regexp.MustCompile("(?i)" + regexp.QuoteMeta(search))
-		return pattern.ReplaceAllString(str, replace)
+		pattern := "(?i)" + regexp.QuoteMeta(search)
+		re, err := regexp.Compile(pattern)
+		if err != nil {
+			return str
+		}
+		return re.ReplaceAllString(str, replace)
 	}
 
 	return strings.ReplaceAll(str, search, replace)

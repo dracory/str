@@ -10,6 +10,10 @@ func ReplaceMatches(str, pattern, replace string) string {
 		return str
 	}
 
-	re := regexp.MustCompile(pattern)
+	re, err := regexp.Compile(pattern)
+	if err != nil {
+		return str
+	}
+
 	return re.ReplaceAllString(str, replace)
 }

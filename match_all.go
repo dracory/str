@@ -9,6 +9,10 @@ func MatchAll(in, pattern string) []string {
 		return []string{in}
 	}
 
-	re := regexp.MustCompile(pattern)
+	re, err := regexp.Compile(pattern)
+	if err != nil {
+		return []string{}
+	}
+
 	return re.FindAllString(in, -1)
 }
