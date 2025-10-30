@@ -18,7 +18,7 @@ func TestRandomFromGamma(t *testing.T) {
 			name:          "Zero Length",
 			length:        0,
 			gamma:         "abc",
-			expectedError: false,
+			expectedError: true,
 			expectedLen:   0,
 		},
 		{
@@ -32,7 +32,7 @@ func TestRandomFromGamma(t *testing.T) {
 			name:          "Empty Gamma",
 			length:        5,
 			gamma:         "",
-			expectedError: false,
+			expectedError: true,
 			expectedLen:   0,
 		},
 		{
@@ -67,9 +67,20 @@ func TestRandomFromGamma(t *testing.T) {
 
 	for _, tc := range testCases {
 		t.Run(tc.name, func(t *testing.T) {
-			result := str.RandomFromGamma(tc.length, tc.gamma)
+			result, err := str.RandomFromGamma(tc.length, tc.gamma)
+			if tc.expectedError {
+				if err == nil {
+					t.Fatalf("RandomFromGamma(%d, %q) expected error, got nil", tc.length, tc.gamma)
+				}
+				return
+			}
+
+			if err != nil {
+				t.Fatalf("RandomFromGamma(%d, %q) unexpected error: %v", tc.length, tc.gamma, err)
+			}
+
 			if len([]rune(result)) != tc.expectedLen {
-				t.Errorf("RandomFromGamma(%d, %q) = %d, want %d", tc.length, tc.gamma, len([]rune(result)), tc.expectedLen)
+				t.Errorf("RandomFromGamma(%d, %q) length = %d, want %d", tc.length, tc.gamma, len([]rune(result)), tc.expectedLen)
 			}
 
 			if tc.expectedLen > 0 && tc.gamma != "" {
@@ -89,7 +100,10 @@ func TestRandomFromGamma_Uniqueness(t *testing.T) {
 	generatedStrings := make(map[string]bool)
 
 	for i := 0; i < numStrings; i++ {
-		randomStr := str.RandomFromGamma(length, gamma)
+		randomStr, err := str.RandomFromGamma(length, gamma)
+		if err != nil {
+			t.Fatalf("RandomFromGamma unexpected error: %v", err)
+		}
 		if _, exists := generatedStrings[randomStr]; exists {
 			t.Errorf("Duplicate string generated: %s", randomStr)
 		}
