@@ -1,7 +1,8 @@
 package str
 
 import (
-	"math/rand/v2"
+	"crypto/rand"
+	"math/big"
 )
 
 // RandomFromGamma generates random string of specified length with the characters specified in the gamma string
@@ -17,9 +18,13 @@ func RandomFromGamma(length int, gamma string) string {
 	inRune := []rune(gamma)
 	out := make([]rune, length) // Pre-allocate for efficiency
 
+	max := big.NewInt(int64(len(inRune)))
 	for i := range out {
-		randomIndex := rand.IntN(len(inRune))
-		out[i] = inRune[randomIndex]
+		randomIndex, err := rand.Int(rand.Reader, max)
+		if err != nil {
+			return ""
+		}
+		out[i] = inRune[randomIndex.Int64()]
 	}
 
 	return string(out)
