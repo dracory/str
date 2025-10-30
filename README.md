@@ -131,8 +131,11 @@ base32 := str.Base32ExtendedEncode("Hello World")  // "91IMOR3FCPBI41"
 // Decode Base32 Extended string
 decoded := str.Base32ExtendedDecode("91IMOR3FCPBI41")  // "Hello World"
 
-// Generate MD5 hash
+// Generate MD5 hash (legacy helper — DO NOT use for security-sensitive hashing)
 md5 := str.MD5("Hello World")  // "b10a8db164e0754105b7a99be72e3fe5"
+
+// Generate SHA-256 hash (preferred general-purpose hashing helper)
+sha256 := str.SHA256("Hello World")  // "a591a6d40bf420404a011733cfb7b190d62c65bf0bcda32b57b277d9ad9f146e"
 
 // Generate BCrypt hash
 bcrypt := str.ToBcryptHash("password")  // "$2a$10$..."
@@ -327,6 +330,8 @@ The following lists every exported helper, grouped by their primary area. Functi
 - `ToBytes(str string)` — converts to `[]byte` without extra allocation.
 - `IntToBase32(n int)` / `IntToBase36(n int)` — integer radix conversions.
 - `MD5(str string)` — hex-encoded MD5 hash.
+  - ⚠️ Legacy helper; MD5 is insecure and must not be used for security-sensitive hashing.
+- `SHA256(str string)` — hex-encoded SHA-256 hash for general-purpose hashing.
 - `ToBcryptHash(password string)` — produces a BCrypt hash.
 - `BcryptHashCompare(password, hash string)` — verifies BCrypt hashes.
 
