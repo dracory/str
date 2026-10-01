@@ -6,6 +6,7 @@ import (
 	"github.com/dracory/str"
 )
 
+// TestStripHTMLTagsBasicHTML verifies that standard HTML tags like <p> and <b> are removed from the input string.
 func TestStripHTMLTagsBasicHTML(t *testing.T) {
 	input := "<p>Hello <b>World</b></p>"
 	expected := "Hello World"
@@ -15,6 +16,7 @@ func TestStripHTMLTagsBasicHTML(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsScriptTags verifies that <script> tags and their inner content are removed.
 func TestStripHTMLTagsScriptTags(t *testing.T) {
 	input := "Hello <script type=\"text/javascript\">alert('xss')</script>World"
 	expected := "Hello World"
@@ -24,6 +26,7 @@ func TestStripHTMLTagsScriptTags(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsStyleTags verifies that <style> tags and their inner content are removed.
 func TestStripHTMLTagsStyleTags(t *testing.T) {
 	input := "Hello <style media=\"screen\">body { color: red; }</style>World"
 	expected := "Hello World"
@@ -33,6 +36,7 @@ func TestStripHTMLTagsStyleTags(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsScriptAndStyleCaseInsensitive verifies tag matching behavior when script or style tags have mixed/uppercase casing.
 func TestStripHTMLTagsScriptAndStyleCaseInsensitive(t *testing.T) {
 	input := "Hello <SCRIPT>alert(1)</SCRIPT> World <Style>body{}</Style>"
 	expected := "Hello alert(1) World body{}"
@@ -42,6 +46,7 @@ func TestStripHTMLTagsScriptAndStyleCaseInsensitive(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsHTMLComments verifies that HTML comments like <!-- ... --> are stripped out.
 func TestStripHTMLTagsHTMLComments(t *testing.T) {
 	input := "Hello <!-- comment --> World"
 	expected := "Hello World"
@@ -51,6 +56,7 @@ func TestStripHTMLTagsHTMLComments(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsSelfClosingTags verifies that self-closing tags like <br/> and <img> are properly removed.
 func TestStripHTMLTagsSelfClosingTags(t *testing.T) {
 	input := "Hello<br/>World <img src=\"test.jpg\" alt=\"image\" />"
 	expected := "Hello World"
@@ -60,6 +66,7 @@ func TestStripHTMLTagsSelfClosingTags(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsHTMLEntities verifies that HTML entities such as &amp;, &lt;, &gt;, &quot;, and &nbsp; are decoded.
 func TestStripHTMLTagsHTMLEntities(t *testing.T) {
 	input := "Foo &amp; Bar &lt;Baz&gt; &quot;Qux&quot; &#39;Quux&#39; &nbsp; Space"
 	expected := "Foo & Bar <Baz> \"Qux\" 'Quux' \u00a0 Space"
@@ -69,6 +76,7 @@ func TestStripHTMLTagsHTMLEntities(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsWhitespaceAndNewlines verifies that multiple spaces, tabs, and newlines are squished into single spaces and trimmed.
 func TestStripHTMLTagsWhitespaceAndNewlines(t *testing.T) {
 	input := "  \n\t <p>  Multiple   \n spaces  </p>  \t "
 	expected := "Multiple spaces"
@@ -78,6 +86,7 @@ func TestStripHTMLTagsWhitespaceAndNewlines(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsPlainText verifies that input strings containing no HTML tags remain unchanged (other than trimming whitespace).
 func TestStripHTMLTagsPlainText(t *testing.T) {
 	input := "Plain text without HTML"
 	expected := "Plain text without HTML"
@@ -87,6 +96,7 @@ func TestStripHTMLTagsPlainText(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsEmptyString verifies that passing an empty string yields an empty string output.
 func TestStripHTMLTagsEmptyString(t *testing.T) {
 	input := ""
 	expected := ""
@@ -96,6 +106,7 @@ func TestStripHTMLTagsEmptyString(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsOnlyTags verifies that an input string consisting entirely of HTML tags results in an empty string.
 func TestStripHTMLTagsOnlyTags(t *testing.T) {
 	input := "<div><p><span></span></p></div>"
 	expected := ""
@@ -105,6 +116,7 @@ func TestStripHTMLTagsOnlyTags(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsNestedTags verifies that text inside nested HTML tags is preserved while all tags are removed.
 func TestStripHTMLTagsNestedTags(t *testing.T) {
 	input := "<div>Outer <span>Inner</span> Text</div>"
 	expected := "Outer Inner Text"
@@ -114,6 +126,7 @@ func TestStripHTMLTagsNestedTags(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsUnclosedTags verifies the behavior when an unclosed HTML tag with closing bracket is processed.
 func TestStripHTMLTagsUnclosedTags(t *testing.T) {
 	input := "Hello <a href='link'> World"
 	expected := "Hello World"
@@ -123,6 +136,7 @@ func TestStripHTMLTagsUnclosedTags(t *testing.T) {
 	}
 }
 
+// TestStripHTMLTagsWithoutClosingAngleBracket verifies the behavior when text contains an open angle bracket with no closing bracket.
 func TestStripHTMLTagsWithoutClosingAngleBracket(t *testing.T) {
 	input := "Hello <a href='link' World"
 	expected := "Hello <a href='link' World"
